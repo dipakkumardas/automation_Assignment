@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.CheckoutPage;
@@ -35,7 +34,7 @@ public class CheckOutPageStepDefination {
 	}
 
 	/**
-	 * Click on TShart category and verify title
+	 * Click on TShirt category and verify title
 	 * 
 	 */
 	@And("Click on the T-shirts category Link")
