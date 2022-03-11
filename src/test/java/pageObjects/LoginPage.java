@@ -20,8 +20,7 @@ public class LoginPage {
 	LoginPage loginpage;
 	TestContextSetup textcontextsetup;
 	TestUtil testutility;
-	public long wait=5000;
-
+	
 	/**
 	 * This is the default constructor of the Login page
 	 * 
