@@ -21,7 +21,7 @@ public class LandingPage {
 	JavaUtility javautil;
 	JSLibrary jslibrary;
 	TestUtil testutility;
-
+	
 	/**
 	 * This is the default constructor of the Landing page
 	 * 
@@ -53,7 +53,7 @@ public class LandingPage {
 	 */
 
 	public void sign_In() {
-		javautil.wait_For_Element_Clickable(8000, sign_In_link);
+		javautil.wait_For_Element_Clickable(javautil.waittime, sign_In_link);
 		testutility.click(sign_In_link);
 	}
 

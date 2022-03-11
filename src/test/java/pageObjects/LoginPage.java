@@ -20,6 +20,7 @@ public class LoginPage {
 	LoginPage loginpage;
 	TestContextSetup textcontextsetup;
 	TestUtil testutility;
+	public long wait=5000;
 
 	/**
 	 * This is the default constructor of the Login page
@@ -77,7 +78,7 @@ public class LoginPage {
 	 */
 
 	public void submitButton() {
-		javautil.wait_For_Element_Clickable(5000, login_Button);
+		javautil.wait_For_Element_Clickable(javautil.waittime, login_Button);
 		testutility.click(login_Button);
 	}
 

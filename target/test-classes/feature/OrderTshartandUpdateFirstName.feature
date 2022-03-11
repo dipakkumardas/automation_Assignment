@@ -12,7 +12,6 @@ Scenario: Purchase Tshirt and verify the order
 	And Click on the T-shirts category Link 
 	When Search with "Faded Short Sleeve T-shirts" for purchase 
 	Then click on proceed to checkout button and complete check out process
-	#And click back to order histry and verify the order 
 	
 @UpdatePersonalInfo 
 Scenario: Update First Name from Personal information and Verify updated FirstName 

@@ -16,7 +16,7 @@ public class MyAccountPage {
 	public WebDriver driver;
 	JavaUtility javautil;
 	TestUtil testutility;
-
+	
 	/**
 	 * This is the default constructor of the My Account page
 	 * 
@@ -68,7 +68,7 @@ public class MyAccountPage {
 
 	public void personal_Information_button() {
 
-		javautil.wait_For_Element_Clickable(3000, personal_Information);
+		javautil.wait_For_Element_Clickable(javautil.waittime, personal_Information);
 		testutility.click(personal_Information);
 	}
 

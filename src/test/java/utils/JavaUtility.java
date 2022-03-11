@@ -21,6 +21,7 @@ public class JavaUtility {
 	
 public WebDriver driver;
 public WebDriverWait wait;
+public final Long waittime=(long) 5000;
 	
  public JavaUtility(WebDriver driver)
  { 
@@ -51,6 +52,8 @@ public WebDriverWait wait;
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		
 	}
+	
+	
 	
 	
 	

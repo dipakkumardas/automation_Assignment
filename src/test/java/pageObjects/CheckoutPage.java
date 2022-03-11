@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.io.IOException;
+
 /**
  * 
  * @author Dipak
@@ -11,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.CheckoutPage;
 import utils.JSLibrary;
 import utils.JavaUtility;
+import utils.TestBase;
 import utils.TestUtil;
 
 public class CheckoutPage {
@@ -19,17 +22,19 @@ public class CheckoutPage {
 	TestUtil testutility;
 	JavaUtility javautil;
 	JSLibrary jslibrary;
+	TestBase testbase;
 
 	/**
 	 * This is the default constructor of the CheckoutPage
 	 * 
 	 * @param driver holds the driver reference of the TestBase class
+	 * @throws IOException
 	 */
 
-	public CheckoutPage(WebDriver driver) {
+	public CheckoutPage(WebDriver driver) throws IOException {
 		this.driver = driver;
-		javautil=new JavaUtility(this.driver);
-		testutility= new TestUtil(this.driver);
+		javautil = new JavaUtility(this.driver);
+		testutility = new TestUtil(this.driver);
 		jslibrary = new JSLibrary(this.driver);
 
 	}
@@ -39,7 +44,7 @@ public class CheckoutPage {
 	private By searchtshirt_textbox = By.xpath("//input[@id='search_query_top']");
 	private By address_ProceedToCheckout = By.xpath("//button[@name='processAddress']");
 	private By addedSuccessfully = By
-		.xpath("//div[@class='layer_cart_product col-xs-12 col-md-6']//span[@class='cross']//following::h2[1]");
+			.xpath("//div[@class='layer_cart_product col-xs-12 col-md-6']//span[@class='cross']//following::h2[1]");
 	private By shipping_proceed_to_Checkout = By.xpath("//button[@name='processCarrier']");
 	private By add_To_Cart = By.xpath("//p[@id='add_to_cart']/button");
 	private By shipping_Pages_Terms_Checkbox_Id = By.id("cgv");
@@ -49,22 +54,22 @@ public class CheckoutPage {
 	private By continueshopping = By.xpath("//div//a[@title='Proceed to checkout']//span");
 	private By Summary_ProceedToCheckout = By.xpath("//p//a[@title='Proceed to checkout']//span");
 	private By order_History_Link = By.xpath("//a[contains(@title,'Back to orders')]");
-	public	String expected_checkout_page_title="T-shirts - My Store";
-	public  String expected_checkout_order_page_title="Order - My Store";
-	public String reference_id;
+	public String expected_checkout_page_title = "T-shirts - My Store";
+	public String expected_checkout_order_page_title = "Order - My Store";
+	public String reference_id = null;
 	private By order_Reference = By.xpath("//tr[contains(@class,'first_item')]//a[@class='color-myaccount']");
-	public String orderreference;
-	//By order_Confirmation_Text= By.xpath("//*[@id='center_column']/div/strong[contains(text(),'RTP')]//following::br[1]//following::text()[1]");
-	
-	/** This Method Returns 
-	 *   Checkout page title
+	public String orderreference = null;
+
+	/**
+	 * This Method Returns Checkout page title
+	 * 
 	 * @return
 	 */
-	
+
 	public String return_checkout_Page_Title() {
 
 		return testutility.pageTitle();
-		
+
 	}
 
 	/**
@@ -74,7 +79,7 @@ public class CheckoutPage {
 
 	public void chooseProductCategory() {
 		testutility.click(tshirtcategory);
-		}
+	}
 
 	/**
 	 * After adding product to Cart this function fetching Add Successful Text
@@ -82,9 +87,9 @@ public class CheckoutPage {
 	 */
 
 	public String added_Successfully_GetText() {
-		
+
 		return testutility.gettext(addedSuccessfully).trim();
-		}
+	}
 
 	/**
 	 * This Function is used to search the product.
@@ -95,9 +100,9 @@ public class CheckoutPage {
 		testutility.entertext(searchtshirt_textbox, tshirt);
 		testutility.PressEnter(searchtshirt_textbox);
 		jslibrary.scroll_Into_View(tshirtname);
-		javautil.wait_For_Element_Clickable(5000, tshirtname);
+		javautil.wait_For_Element_Clickable(javautil.waittime, tshirtname);
 		testutility.click(tshirtname);
-		}
+	}
 
 	/**
 	 * This Function is used to add to cart.
@@ -107,7 +112,7 @@ public class CheckoutPage {
 	public void checkoutItems() throws InterruptedException {
 		jslibrary.scroll_Into_View(add_To_Cart);
 		testutility.click(add_To_Cart);
-		
+
 	}
 
 	/**
@@ -117,7 +122,7 @@ public class CheckoutPage {
 
 	public void ContinueShopping() throws InterruptedException {
 		jslibrary.scroll_Into_View(continueshopping);
-		javautil.wait_For_Element_Clickable(5000, continueshopping);
+		javautil.wait_For_Element_Clickable(javautil.waittime, continueshopping);
 		testutility.click(continueshopping);
 	}
 
@@ -127,13 +132,13 @@ public class CheckoutPage {
 	 */
 
 	public void ProceedToCheckout() {
-		
+
 		jslibrary.scroll_Into_View(Summary_ProceedToCheckout);
-		javautil.wait_For_Element_Clickable(5000, Summary_ProceedToCheckout);
+		javautil.wait_For_Element_Clickable(javautil.waittime, Summary_ProceedToCheckout);
 		testutility.click(Summary_ProceedToCheckout);
 		jslibrary.scroll_Into_View(address_ProceedToCheckout);
 		testutility.click(address_ProceedToCheckout);
-		}
+	}
 
 	/**
 	 * This Function is used for click terms and condition on checkout process
@@ -141,77 +146,75 @@ public class CheckoutPage {
 	 */
 
 	public void terms_AndCondition_Check_Box() {
-		
-		
+
 		jslibrary.scroll_Into_View(shipping_Pages_Terms_Checkbox_Id);
 		testutility.click(shipping_Pages_Terms_Checkbox_Id);
-		}
+	}
 
 	/**
 	 * This Function is used Shipping page checkout process
 	 *
 	 */
 	public void shipping_Proceed_to_checkout() {
-		javautil.wait_For_Element_Clickable(5000, shipping_proceed_to_Checkout);
+		javautil.wait_For_Element_Clickable(javautil.waittime, shipping_proceed_to_Checkout);
 		testutility.click(shipping_proceed_to_Checkout);
-		}
+	}
 
 	/**
-	 * This Function is used payment page choose payment
-	 * Wait For Element is waiting till Element Visible
+	 * This Function is used payment page choose payment Wait For Element is waiting
+	 * till Element Visible
 	 *
 	 */
 	public void payment() {
-		javautil.wait_For_Element_Visible(5000, payment);
+		javautil.wait_For_Element_Visible(javautil.waittime, payment);
 		testutility.click(payment);
-		}
+	}
 
 	/**
 	 * This Function is used for Confirm Order button Click
 	 *
 	 */
 	public void confirm_Order() {
-		javautil.wait_For_Element_Clickable(5000, confirmOrder);
+		javautil.wait_For_Element_Clickable(javautil.waittime, confirmOrder);
 		testutility.click(confirmOrder);
-		javautil.wait_For_Element_Visible(5000, order_Confirmation_Text);
-		}
-	
+		javautil.wait_For_Element_Visible(javautil.waittime, order_Confirmation_Text);
+	}
+
+	/**
+	 * Click Back to order history page
+	 */
+
 	public void open_Order_History() {
 
-		javautil.wait_For_Element_Clickable(5000, order_History_Link);
+		javautil.wait_For_Element_Clickable(javautil.waittime, order_History_Link);
 		testutility.click(order_History_Link);
-		}
-	
-	
-	
+	}
+
 	/**
 	 * Fatch Order Ref Id
+	 * 
 	 * @return
 	 */
-	
+
 	public String get_Order_Confirmation_Reference_Id() {
-		
+
 		String order_confirmation_text = testutility.gettext(order_Confirmation_Text);
-		System.out.println(order_confirmation_text);
 		int index_reference_text = order_confirmation_text.indexOf("reference");
-		System.out.println(index_reference_text);
 		reference_id = order_confirmation_text.substring(index_reference_text + 10, index_reference_text + 19);
 		return reference_id;
 
 	}
-	
-	
+
+	/**
+	 * Fatch Order ref Id from Order History page
+	 * 
+	 * @return
+	 */
 	public String get_Order_Reference_Id() {
 
-		 orderreference = testutility.gettext(order_Reference);
-		// String orderreference = TestUtil.gettext(TestUtil.getElement(OrderHistoryPage.order_Reference));
-			return orderreference;
-		}
-	
-	
-	
-	
-
-	
-	
+		javautil.wait_For_Element_Visible(javautil.waittime, order_Reference);
+		orderreference = testutility.gettext(order_Reference);
+		return orderreference;
 	}
+
+}

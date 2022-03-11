@@ -1,5 +1,7 @@
 package stepDefinations;
 
+import java.io.IOException;
+
 /**
  * 
  * @author Dipak
@@ -20,14 +22,16 @@ public class CheckOutPageStepDefination {
 	public WebDriver driver;
 	public CheckoutPage checkoutPage;
 	TestContextSetup textcontextsetup;
+	String orderconfirm;
 
 	/**
 	 * Create a Constructor and Pass the instance of Test Content setup
 	 * 
 	 * @param textcontextsetup
+	 * @throws IOException 
 	 */
 
-	public CheckOutPageStepDefination(TestContextSetup textcontextsetup) {
+	public CheckOutPageStepDefination(TestContextSetup textcontextsetup) throws IOException {
 		this.textcontextsetup = textcontextsetup;
 		this.checkoutPage = textcontextsetup.pageObjectManager.getCheckoutPage();
 		
@@ -69,9 +73,9 @@ public class CheckOutPageStepDefination {
 		checkoutPage.shipping_Proceed_to_checkout();
 		checkoutPage.payment();
 		checkoutPage.confirm_Order();
-		System.out.println(checkoutPage.get_Order_Confirmation_Reference_Id());
+		orderconfirm =checkoutPage.get_Order_Confirmation_Reference_Id();
 		checkoutPage.open_Order_History();
-		Assert.assertEquals(checkoutPage.get_Order_Confirmation_Reference_Id(), checkoutPage.get_Order_Reference_Id());
+		Assert.assertEquals(orderconfirm, checkoutPage.get_Order_Reference_Id());
 	}
 
 }

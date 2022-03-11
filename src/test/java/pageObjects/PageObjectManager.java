@@ -25,7 +25,6 @@ public class PageObjectManager {
 	public WebDriver driver;
 	public LandingPage landingpage;
 	public CheckoutPage checkoutPage;
-	public OrderHistoryPage orderhistory;
 	public MyAccountPage myaccountPage;
 	public LoginPage loginPage;
 	public TestBase testBase;
@@ -55,8 +54,9 @@ public class PageObjectManager {
 	/**
 	 * Create Checkout Page object and Assign to driver 
 	 * @return
+	 * @throws IOException 
 	 */
-	public CheckoutPage getCheckoutPage() {
+	public CheckoutPage getCheckoutPage() throws IOException {
 		checkoutPage = new CheckoutPage(driver);
 		return checkoutPage;
 	}
@@ -119,10 +119,5 @@ public class PageObjectManager {
 		return testutility;
 	}
 	
-	public OrderHistoryPage getOrderHistiry()
-	{
-		orderhistory = new OrderHistoryPage(driver);
-		return orderhistory;
-	}
-	
+		
 }
