@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
+import pageObjects.MyAccountPage;
 import pageObjects.PageObjectManager;
 
 public class TestContextSetup {
@@ -17,6 +18,7 @@ public class TestContextSetup {
 	public TestBase testBase;
 	public JavaUtility javautil;
 	public LandingPage landingpage;
+	public MyAccountPage myaccountpage;
 	public CheckoutPage checkoutpage;
 	public JSLibrary jslibrary;
 	public TestUtil testutility;
@@ -34,6 +36,7 @@ public class TestContextSetup {
 		pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
 		landingpage= new LandingPage(testBase.WebDriverManager());
 		checkoutpage = new CheckoutPage(testBase.WebDriverManager());
+		myaccountpage = new MyAccountPage(testBase.WebDriverManager());
 		javautil= new JavaUtility(testBase.WebDriverManager());
 		jslibrary = new JSLibrary(testBase.WebDriverManager());
 		testutility = new TestUtil(testBase.WebDriverManager());
