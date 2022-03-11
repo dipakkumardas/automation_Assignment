@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.CheckoutPage;
 import utils.JSLibrary;
 import utils.JavaUtility;
-import utils.TestBase;
 import utils.TestUtil;
 
 public class CheckoutPage {
@@ -22,7 +21,7 @@ public class CheckoutPage {
 	TestUtil testutility;
 	JavaUtility javautil;
 	JSLibrary jslibrary;
-	TestBase testbase;
+	
 
 	/**
 	 * This is the default constructor of the CheckoutPage
@@ -31,7 +30,7 @@ public class CheckoutPage {
 	 * @throws IOException
 	 */
 
-	public CheckoutPage(WebDriver driver) throws IOException {
+	public CheckoutPage(WebDriver driver){
 		this.driver = driver;
 		javautil = new JavaUtility(this.driver);
 		testutility = new TestUtil(this.driver);

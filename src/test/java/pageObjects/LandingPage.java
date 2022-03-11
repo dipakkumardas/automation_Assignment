@@ -8,18 +8,14 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.JSLibrary;
 import utils.JavaUtility;
-import utils.TestContextSetup;
+
 import utils.TestUtil;
 
 public class LandingPage {
 
 	public WebDriver driver;
-	TestContextSetup textcontextsetup;
-	LandingPage landingpage;
 	JavaUtility javautil;
-	JSLibrary jslibrary;
 	TestUtil testutility;
 	
 	/**

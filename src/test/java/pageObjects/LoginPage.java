@@ -10,15 +10,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import utils.JavaUtility;
-import utils.TestContextSetup;
 import utils.TestUtil;
 
 public class LoginPage {
 
 	public WebDriver driver;
 	JavaUtility javautil;
-	LoginPage loginpage;
-	TestContextSetup textcontextsetup;
 	TestUtil testutility;
 	
 	/**

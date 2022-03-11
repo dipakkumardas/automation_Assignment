@@ -31,7 +31,7 @@ public class CheckOutPageStepDefination {
 	 * @throws IOException 
 	 */
 
-	public CheckOutPageStepDefination(TestContextSetup textcontextsetup) throws IOException {
+	public CheckOutPageStepDefination(TestContextSetup textcontextsetup) {
 		this.textcontextsetup = textcontextsetup;
 		this.checkoutPage = textcontextsetup.pageObjectManager.getCheckoutPage();
 		

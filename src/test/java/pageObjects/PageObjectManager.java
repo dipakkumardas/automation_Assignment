@@ -56,7 +56,7 @@ public class PageObjectManager {
 	 * @return
 	 * @throws IOException 
 	 */
-	public CheckoutPage getCheckoutPage() throws IOException {
+	public CheckoutPage getCheckoutPage() {
 		checkoutPage = new CheckoutPage(driver);
 		return checkoutPage;
 	}
