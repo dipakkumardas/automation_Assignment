@@ -63,7 +63,7 @@ public class CheckOutPageStepDefination {
 	 * Completing the checkout process
 	 * 
 	 */
-	@Then("click on proceed to checkout button and complete check out process")
+	@Then("click on proceed to checkout button and complete check out process and verify order")
 	public void click_on_proceed_to_checkout_button_and_complete_check_out_process() throws InterruptedException {
 		checkoutPage.checkoutItems();
 		checkoutPage.ContinueShopping();

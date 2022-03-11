@@ -11,7 +11,7 @@ Background: User log in to the site
 Scenario: Purchase Tshirt and verify the order 
 	And Click on the T-shirts category Link 
 	When Search with "Faded Short Sleeve T-shirts" for purchase 
-	Then click on proceed to checkout button and complete check out process
+	Then click on proceed to checkout button and complete check out process and verify order
 	
 @UpdatePersonalInfo 
 Scenario: Update First Name from Personal information and Verify updated FirstName 
