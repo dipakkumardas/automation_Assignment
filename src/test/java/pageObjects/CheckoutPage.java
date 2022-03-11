@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 
@@ -10,6 +11,8 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import pageObjects.CheckoutPage;
 import utils.JSLibrary;
 import utils.JavaUtility;
@@ -56,20 +59,21 @@ public class CheckoutPage {
 	public String expected_checkout_page_title = "T-shirts - My Store";
 	public String expected_checkout_order_page_title = "Order - My Store";
 	public String reference_id = null;
-	private By order_Reference = By.xpath("//tr[contains(@class,'first_item')]//a[@class='color-myaccount']");
-	public String orderreference = null;
-
+		
 	/**
 	 * This Method Returns Checkout page title
 	 * 
 	 * @return
 	 */
+	
 
 	public String return_checkout_Page_Title() {
 
 		return testutility.pageTitle();
 
 	}
+	
+	
 
 	/**
 	 * This functions brings the product listing section and Click TShart Category
@@ -203,17 +207,26 @@ public class CheckoutPage {
 		return reference_id;
 
 	}
-
+	
 	/**
-	 * Fatch Order ref Id from Order History page
-	 * 
+	 *  validate order from Order table
+	 * @param refId
 	 * @return
 	 */
-	public String get_Order_Reference_Id() {
+	
+	public boolean validateOrderHistory(String refId) {
+		   List<WebElement> rowsOfTable = driver.findElements(By.xpath("//*[@id='order-list']/tbody/tr"));
+		   boolean flag = false;
+		   for (int i = 1; i < rowsOfTable.size(); i++) {
+		      if (rowsOfTable.get(i).findElement(By.xpath("//td[1]")).getText().contains(refId)) {
+		         flag = true;
+		         break;
+		      }
+		   }
 
-		javautil.wait_For_Element_Visible(javautil.waittime, order_Reference);
-		orderreference = testutility.gettext(order_Reference);
-		return orderreference;
-	}
+		   return flag;
+
+		}
+	
 
 }

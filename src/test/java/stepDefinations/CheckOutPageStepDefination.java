@@ -75,7 +75,7 @@ public class CheckOutPageStepDefination {
 		checkoutPage.confirm_Order();
 		orderconfirm =checkoutPage.get_Order_Confirmation_Reference_Id();
 		checkoutPage.open_Order_History();
-		Assert.assertEquals(orderconfirm, checkoutPage.get_Order_Reference_Id());
+		Assert.assertTrue(checkoutPage.validateOrderHistory(orderconfirm));
 	}
 
 }
