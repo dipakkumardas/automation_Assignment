@@ -48,8 +48,13 @@ public class CheckoutPage {
 	private By order_Confirmation_Text = By.xpath("//div[@class='box']");
 	private By continueshopping = By.xpath("//div//a[@title='Proceed to checkout']//span");
 	private By Summary_ProceedToCheckout = By.xpath("//p//a[@title='Proceed to checkout']//span");
+	private By order_History_Link = By.xpath("//a[contains(@title,'Back to orders')]");
 	public	String expected_checkout_page_title="T-shirts - My Store";
 	public  String expected_checkout_order_page_title="Order - My Store";
+	public String reference_id;
+	private By order_Reference = By.xpath("//tr[contains(@class,'first_item')]//a[@class='color-myaccount']");
+	public String orderreference;
+	//By order_Confirmation_Text= By.xpath("//*[@id='center_column']/div/strong[contains(text(),'RTP')]//following::br[1]//following::text()[1]");
 	
 	/** This Method Returns 
 	 *   Checkout page title
@@ -170,5 +175,43 @@ public class CheckoutPage {
 		testutility.click(confirmOrder);
 		javautil.wait_For_Element_Visible(5000, order_Confirmation_Text);
 		}
+	
+	public void open_Order_History() {
+
+		javautil.wait_For_Element_Clickable(5000, order_History_Link);
+		testutility.click(order_History_Link);
+		}
+	
+	
+	
+	/**
+	 * Fatch Order Ref Id
+	 * @return
+	 */
+	
+	public String get_Order_Confirmation_Reference_Id() {
+		
+		String order_confirmation_text = testutility.gettext(order_Confirmation_Text);
+		System.out.println(order_confirmation_text);
+		int index_reference_text = order_confirmation_text.indexOf("reference");
+		System.out.println(index_reference_text);
+		reference_id = order_confirmation_text.substring(index_reference_text + 10, index_reference_text + 19);
+		return reference_id;
+
+	}
+	
+	
+	public String get_Order_Reference_Id() {
+
+		 orderreference = testutility.gettext(order_Reference);
+		// String orderreference = TestUtil.gettext(TestUtil.getElement(OrderHistoryPage.order_Reference));
+			return orderreference;
+		}
+	
+	
+	
+	
+
+	
 	
 	}

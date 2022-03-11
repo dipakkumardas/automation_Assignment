@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
+import pageObjects.OrderHistoryPage;
 import pageObjects.PageObjectManager;
 
 public class TestContextSetup {
@@ -20,6 +21,7 @@ public class TestContextSetup {
 	public CheckoutPage checkoutpage;
 	public JSLibrary jslibrary;
 	public TestUtil testutility;
+	public OrderHistoryPage orderhistory;
 		
 
 	public PageObjectManager pageObjectManager;
@@ -38,6 +40,8 @@ public class TestContextSetup {
 		javautil= new JavaUtility(testBase.WebDriverManager());
 		jslibrary = new JSLibrary(testBase.WebDriverManager());
 		testutility = new TestUtil(testBase.WebDriverManager());
+		orderhistory = new OrderHistoryPage(testBase.WebDriverManager());
+		
 
 	}
 

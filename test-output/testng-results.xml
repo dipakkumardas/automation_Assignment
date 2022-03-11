@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-10T13:04:51 IST" name="Default suite" finished-at="2022-03-10T13:05:27 IST" duration-ms="36481">
+  <suite started-at="2022-03-11T15:31:43 IST" name="Default suite" finished-at="2022-03-11T15:33:28 IST" duration-ms="105045">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.FailedTestNGTestRunner@57a3af25]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestNGTestRunner@57a3af25]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-03-10T13:04:51 IST" name="Default test" finished-at="2022-03-10T13:05:27 IST" duration-ms="36481">
-      <class name="cucumberOptions.FailedTestNGTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptions.FailedTestNGTestRunner@57a3af25]" started-at="2022-03-10T13:04:51 IST" name="setUpClass" finished-at="2022-03-10T13:04:52 IST" duration-ms="1268" status="PASS">
+    <test started-at="2022-03-11T15:31:43 IST" name="Default test" finished-at="2022-03-11T15:33:28 IST" duration-ms="105045">
+      <class name="cucumberOptions.TestNGTestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptions.TestNGTestRunner@57a3af25]" started-at="2022-03-11T15:31:43 IST" name="setUpClass" finished-at="2022-03-11T15:31:44 IST" duration-ms="1470" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@4702e7a5]]>
+                <![CDATA[org.testng.TestRunner@5396eeb1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.FailedTestNGTestRunner@57a3af25]" started-at="2022-03-10T13:04:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-03-10T13:05:27 IST" duration-ms="34411" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestNGTestRunner@57a3af25]" started-at="2022-03-11T15:31:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-03-11T15:33:27 IST" duration-ms="102491" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Update First Name from Personal information and Verify updated FirstName"]]>
+                <![CDATA["Purchase Tshirt and verify the order"]]>
               </value>
             </param>
             <param index="1">
@@ -34,14 +34,26 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "String.indexOf(String)" because "order_confirmation_text" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.indexOf(String)" because "order_confirmation_text" is null
+at pageObjects.CheckoutPage.get_Order_Confirmation_Reference_Id(CheckoutPage.java:196)
+at stepDefinations.CheckOutPageStepDefination.click_on_proceed_to_checkout_button_and_complete_check_out_process(CheckOutPageStepDefination.java:74)
+at ✽.click on proceed to checkout button and complete check out process(file:///D:/OfficeProject/Automation_Practice/automationpractice_Assingment/src/test/resources/feature/OrderTshartandUpdateFirstName.feature:14)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptions.FailedTestNGTestRunner@57a3af25]" started-at="2022-03-10T13:05:27 IST" name="tearDownClass" finished-at="2022-03-10T13:05:27 IST" duration-ms="732" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptions.TestNGTestRunner@57a3af25]" started-at="2022-03-11T15:33:27 IST" name="tearDownClass" finished-at="2022-03-11T15:33:28 IST" duration-ms="1005" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- cucumberOptions.FailedTestNGTestRunner -->
+      </class> <!-- cucumberOptions.TestNGTestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

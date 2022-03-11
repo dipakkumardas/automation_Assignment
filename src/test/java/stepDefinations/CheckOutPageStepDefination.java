@@ -69,6 +69,9 @@ public class CheckOutPageStepDefination {
 		checkoutPage.shipping_Proceed_to_checkout();
 		checkoutPage.payment();
 		checkoutPage.confirm_Order();
+		System.out.println(checkoutPage.get_Order_Confirmation_Reference_Id());
+		checkoutPage.open_Order_History();
+		Assert.assertEquals(checkoutPage.get_Order_Confirmation_Reference_Id(), checkoutPage.get_Order_Reference_Id());
 	}
 
 }

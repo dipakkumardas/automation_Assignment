@@ -25,6 +25,7 @@ public class PageObjectManager {
 	public WebDriver driver;
 	public LandingPage landingpage;
 	public CheckoutPage checkoutPage;
+	public OrderHistoryPage orderhistory;
 	public MyAccountPage myaccountPage;
 	public LoginPage loginPage;
 	public TestBase testBase;
@@ -118,5 +119,10 @@ public class PageObjectManager {
 		return testutility;
 	}
 	
+	public OrderHistoryPage getOrderHistiry()
+	{
+		orderhistory = new OrderHistoryPage(driver);
+		return orderhistory;
+	}
 	
 }
