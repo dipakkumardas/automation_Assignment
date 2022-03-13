@@ -45,7 +45,7 @@ public class TestBase {
 		/**
 		 *Driver Initialize only once , If It's already Initialize then it's only
 		* Return the driver
-		* This Checking is hare Below 
+		* This Checking is Below 
 		*/
 
 		if (driver == null) {
