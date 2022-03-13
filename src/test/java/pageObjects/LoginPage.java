@@ -68,7 +68,7 @@ public class LoginPage {
 	}
 
 	/**
-	 * This Function Click Save Button
+	 * This Function Click Login Button
 	 * 
 	 * 
 	 */
