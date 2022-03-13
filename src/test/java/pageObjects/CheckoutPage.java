@@ -123,7 +123,7 @@ public class CheckoutPage {
 	 *
 	 */
 
-	public void ContinueShopping() throws InterruptedException {
+	public void continueShopping() throws InterruptedException {
 		jslibrary.scroll_Into_View(continueshopping);
 		javautil.wait_For_Element_Clickable(javautil.waittime, continueshopping);
 		testutility.click(continueshopping);
@@ -134,7 +134,7 @@ public class CheckoutPage {
 	 *
 	 */
 
-	public void ProceedToCheckout() {
+	public void proceedToCheckout() {
 
 		jslibrary.scroll_Into_View(Summary_ProceedToCheckout);
 		javautil.wait_For_Element_Clickable(javautil.waittime, Summary_ProceedToCheckout);

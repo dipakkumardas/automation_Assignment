@@ -66,8 +66,8 @@ public class CheckOutPageStepDefination {
 	@Then("Click on proceed to checkout button and complete check out process and verify order")
 	public void click_on_proceed_to_checkout_button_and_complete_check_out_process() throws InterruptedException {
 		checkoutPage.checkoutItems();
-		checkoutPage.ContinueShopping();
-		checkoutPage.ProceedToCheckout();
+		checkoutPage.continueShopping();
+		checkoutPage.proceedToCheckout();
 		Assert.assertEquals(checkoutPage.expected_checkout_order_page_title, checkoutPage.return_checkout_Page_Title());
 		checkoutPage.terms_AndCondition_Check_Box();
 		checkoutPage.shipping_Proceed_to_checkout();
