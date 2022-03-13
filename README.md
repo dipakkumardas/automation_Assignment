@@ -26,7 +26,8 @@ After execution Extent Report and Cucumber Report will get generated.
 </br>
 <b>Further improvement scope</b> </br>
 * Execution through Sauce labs can be integrated into this Framework </br>
-* Parallel execution
+* Parallel execution </br>
+* LogSLF4J
 
 
 
